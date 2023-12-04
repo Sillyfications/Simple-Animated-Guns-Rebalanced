@@ -54,35 +54,35 @@ public class ModItems {
 	public static final Item SHOTGUN_SHELL = registerItem("shotgun_shell", new Item(new FabricItemSettings().group(AnimatedGuns.GUNS).maxCount(64)));
 
 	public static final Item PISTOL = registerItem("pistol_light", new GunItem(new FabricItemSettings().group(AnimatedGuns.GUNS).maxCount(1),
-			"pistol_light",
-			"pistol_generic",
-			5f,
-			4,
-			17,
-			STANDARD_HANDGUN_BULLET,
-			35,
-			new float[] {1.5f, 1.5f},
-			new float[] {1f, 2.5f},
-			1,
-			GunItem.LoadingType.MAGAZINE,
-			null,
-			ModSounds.RELOAD_GENERIC_PISTOL_P1,
-			ModSounds.RELOAD_GENERIC_PISTOL_P2,
-			ModSounds.RELOAD_GENERIC_PISTOL_P3,
-			ModSounds.PISTOL_LIGHT,
-			1,
-			false,
-			false,
-			10,
-			11,
-			21)
+			"pistol_light", //id name of gun [gunID]
+			"pistol_generic", //animation id of gun [animationID]
+			4f, //damage (2.5 hearts) [gunDamage]
+			4, //rate of fire [rateOfFire]
+			17, //magazine capacity [magSize]
+			STANDARD_HANDGUN_BULLET, // ammo type (might be 9mm) [ammoType]
+			35, //reload time (code divides this value to 20, actual reload time is 1,75 seconds) [reloadCooldown]
+			new float[] {1.5f, 1.5f}, //bullet spread [bulletSpread]
+			new float[] {1f, 2.5f}, //recoil [gunRecoil]
+			1, //number of fired bullets [pelletCount]
+			GunItem.LoadingType.MAGAZINE, //how do we reload? [loadingType]
+			null, //reload start sound [reloadSoundStart]
+			ModSounds.RELOAD_GENERIC_PISTOL_P1, //reload mag out sound [reloadSoundMagOut]
+			ModSounds.RELOAD_GENERIC_PISTOL_P2, //reload mag in sound [reloadSoundMagIn]
+			ModSounds.RELOAD_GENERIC_PISTOL_P3, //reload end sound [reloadSoundEnd]
+			ModSounds.PISTOL_LIGHT, //shoot sound [shootSound]
+			1, //reload cycles (used for shotguns) [reloadCycles]
+			false, //does this weapon have a scope? [isScoped]
+			false, //is this weapon going to unscope every shot?
+			10, //first animation (clip out) [reloadStage1]
+			11, //second animation (clip in) [reloadStage2]
+			21) //third animation (slide release) [reloadStage3]
 	{
 	});
 	public static final Item HEAVY_PISTOL = registerItem("pistol_heavy", new GunItem(new FabricItemSettings().group(AnimatedGuns.GUNS).maxCount(1),
 			"pistol_heavy",
 			"pistol_heavy",
-			11f,
-			5,
+			8f,
+			8,
 			7,
 			HEAVY_HANDGUN_BULLET,
 			35,
@@ -106,7 +106,7 @@ public class ModItems {
     public static final Item MAGNUM_REVOLVER = registerItem("revolver_magnum", new GunItem(new FabricItemSettings().group(AnimatedGuns.GUNS).maxCount(1),
 			"revolver_magnum",
 			"revolver_generic",
-			11f,
+			8f,
             10,
             6,
             HEAVY_HANDGUN_BULLET,
@@ -131,7 +131,7 @@ public class ModItems {
     public static final Item OLD_ARMY_REVOLVER = registerItem("revolver_coltarmy", new GunItem(new FabricItemSettings().group(AnimatedGuns.GUNS).maxCount(1),
             "revolver_coltarmy",
             "revolver_coltarmy",
-            22,
+            17,
             20,
             6,
             HEAVY_HANDGUN_BULLET,
@@ -156,8 +156,8 @@ public class ModItems {
 	public static final Item MACHINE_PISTOL = registerItem("smg_machinepistol", new GunItem(new FabricItemSettings().group(AnimatedGuns.GUNS).maxCount(1),
 			"smg_machinepistol",
 			"smg_machinepistol",
-			5f,
-			1,
+			3f,
+			2,
 			30,
 			STANDARD_HANDGUN_BULLET,
 			35,
@@ -181,8 +181,8 @@ public class ModItems {
     public static final Item HEAVY_SMG = registerItem("smg_heavy", new GunItem(new FabricItemSettings().group(AnimatedGuns.GUNS).maxCount(1),
             "smg_heavy",
             "smg_heavy",
-            5.5f,
-            2,
+            4f,
+            3,
             25,
             STANDARD_HANDGUN_BULLET,
             60,
@@ -206,8 +206,8 @@ public class ModItems {
 	public static final Item LIGHT_ASSAULT_RIFLE = registerItem("assaultrifle_light", new GunItem(new FabricItemSettings().group(AnimatedGuns.GUNS).maxCount(1),
 		"assaultrifle_light",
 		"assaultrifle_generic",
-		6f,
-		2,
+		5f,
+		3,
 		30,
 		STANDARD_RIFLE_BULLET,
 		50,
@@ -231,8 +231,8 @@ public class ModItems {
 	public static final Item HEAVY_ASSAULT_RIFLE = registerItem("assaultrifle_heavy", new GunItem(new FabricItemSettings().group(AnimatedGuns.GUNS).maxCount(1),
 		"assaultrifle_heavy",
 		"assaultrifle_heavy",
-		8.5f,
-		3,
+		7f,
+		7,
 		20,
 		STANDARD_RIFLE_BULLET,
 		50,
@@ -256,8 +256,8 @@ public class ModItems {
     public static final Item WAR_TORN_ASSAULT_RIFLE = registerItem("assaultrifle_rus", new GunItem(new FabricItemSettings().group(AnimatedGuns.GUNS).maxCount(1),
 			"assaultrifle_rus",
 			"assaultrifle_rus",
-            7.5f,
-            2,
+            6f,
+            4,
             30,
             STANDARD_RIFLE_BULLET,
             50,
@@ -289,7 +289,7 @@ public class ModItems {
 			44,
 			new float[] {7.5f, 7.5f},
 			new float[] {0.5f, 15f},
-			5,
+			6,
 			GunItem.LoadingType.MAGAZINE,
 			null,
 			ModSounds.RELOAD_DOUBLE_BARREL_SHOTGUN_P1,
@@ -335,7 +335,7 @@ public class ModItems {
             "shotgun_riot",
             "shotgun_riot",
             2.5f,
-            5,
+            8,
             8,
             SHOTGUN_SHELL,
             28,
@@ -360,7 +360,7 @@ public class ModItems {
 	public static final Item CLASSIC_SNIPER_RIFLE = registerItem("sniper_classic", new GunItem(new FabricItemSettings().group(AnimatedGuns.GUNS).maxCount(1),
 		"sniper_classic",
 		"sniper_classic",
-        22,
+        16f,
         20,
         5,
         HEAVY_RIFLE_BULLET,
@@ -386,7 +386,7 @@ public class ModItems {
 	public static final Item BRUSH_GUN = registerItem("sniper_cowboy", new GunItem(new FabricItemSettings().group(AnimatedGuns.GUNS).maxCount(1),
 			"sniper_cowboy",
 			"sniper_cowboy",
-			12,
+			9f,
 			12,
 			10,
 			HEAVY_HANDGUN_BULLET,
@@ -412,7 +412,7 @@ public class ModItems {
 	public static final Item LMG = registerItem("lmg_m60", new GunItem(new FabricItemSettings().group(AnimatedGuns.GUNS).maxCount(1),
 			"lmg_m60",
 			"lmg_m60",
-			7,
+			5,
 			3,
 			100,
 			STANDARD_RIFLE_BULLET,
